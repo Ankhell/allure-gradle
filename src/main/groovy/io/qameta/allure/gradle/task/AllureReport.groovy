@@ -32,7 +32,7 @@ class AllureReport extends DefaultTask implements Reporting<AllureReportContaine
     File reportDir
 
     @Input
-    boolean clean
+    private boolean clean
 
     @Input
     String version
@@ -43,6 +43,14 @@ class AllureReport extends DefaultTask implements Reporting<AllureReportContaine
     AllureReport() {
         dependsOn(DownloadAllure.NAME)
         configureDefaults()
+    }
+
+    boolean getClean() {
+        return clean
+    }
+
+    void setClean(boolean clean) {
+        this.clean = clean
     }
 
     @TaskAction
